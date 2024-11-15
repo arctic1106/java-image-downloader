@@ -11,11 +11,15 @@ import org.jsoup.Jsoup;
 public class HtmlParser {
 	private static final String BASE_URL = "https://windows10spotlight.com/page/%s";
 
-	private HtmlParser() {}
+	private HtmlParser() {
+	}
 
 	public static List<String> getLinksPagina(int i) {
 		try {
-			return Jsoup.connect(BASE_URL.formatted(i)).get().select("a.anons-thumbnail.show[href]").stream().map(e -> e.attr("href")).toList();
+			return Jsoup
+					.connect(BASE_URL.formatted(i)).get()
+					.select("a.anons-thumbnail.show[href]")
+					.stream().map(e -> e.attr("href")).toList();
 		} catch (IOException e) {
 			throw new UncheckedIOException(e);
 		}

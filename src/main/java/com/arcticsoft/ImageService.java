@@ -23,7 +23,8 @@ public class ImageService {
 		}
 	}
 
-	private ImageService() {}
+	private ImageService() {
+	}
 
 	public static void downloadPages(int fromPage, int toPage, boolean virtualThreads) {
 		if (virtualThreads)
@@ -63,7 +64,8 @@ public class ImageService {
 		try {
 			var data = uri.toURL().openStream().readAllBytes();
 			Files.write(imagePath, data, StandardOpenOption.CREATE);
-			LOGGER.log(Level.INFO, "Imagen {0} descargada desde thread: {1}.", new Object[] {fileName, Thread.currentThread().threadId()});
+			LOGGER.log(Level.INFO, "Imagen {0} descargada desde thread: {1}.",
+					new Object[] { fileName, Thread.currentThread().threadId() });
 		} catch (IOException e) {
 			throw new UncheckedIOException(e);
 		}
