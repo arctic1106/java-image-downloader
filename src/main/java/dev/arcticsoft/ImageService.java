@@ -1,4 +1,4 @@
-package com.arcticsoft;
+package dev.arcticsoft;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
